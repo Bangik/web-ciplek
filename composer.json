@@ -1,0 +1,7 @@
+{
+    "name": "web-desa/web-desa",
+    "author": "",
+    "require": {
+        "vlucas/phpdotenv": "^5.2"
+    }
+}
