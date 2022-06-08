@@ -40,6 +40,7 @@
             <a class="nav-link" href="/#berita">Berita</a>
             <a class="nav-link" href="/#profil">Profil</a>
             <a class="nav-link" href="/#produk">Umkm</a>
+            <a class="nav-link" href="/login.php">Login Admin</a>
           </div>
         </div>
       </div>
