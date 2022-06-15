@@ -25,7 +25,7 @@
   </head>
   <body id="home">
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <div class="container">
         <!-- <a class="navbar-brand ms-2 me-2 p-0" href="#">
           <img src="./asset/img/Logo.png" alt="" width="40" height="40" />
