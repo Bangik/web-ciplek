@@ -184,7 +184,7 @@ $data = $data->getAll();
         </div>
         <div class="row" data-aos="zoom-in">
           <div class="col-lg-6">
-            <img src="./asset/img/strukturkantor.png" alt="" class="img-fluid" />
+            <img src="./asset/img/bagan-desa.jpg" alt="" class="img-fluid" />
           </div>
           <div class="col-lg-6">
             <div class="accordion accordion-flush" id="accordionFlushExample" data-aos="fade-left">
