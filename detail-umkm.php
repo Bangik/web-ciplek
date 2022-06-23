@@ -13,7 +13,7 @@ $umkm = $data->getOne($_GET['id']);
         <h1 class="text-center text-dark">UMKM <br /> <?= $umkm['name'] ?> <br />Jember</h1>
         <!-- <p class="text-center text-dark shadow-sm">Selamat datang di Website Desa Kemiri, Panti</p> -->
     </div>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -50 1440 320" style="margin-top: 120px;">
     <path
         fill="#e2edff"
         fill-opacity="1"
@@ -113,7 +113,7 @@ $umkm = $data->getOne($_GET['id']);
                     <div class="card-body">
                         <h5 class="card-title">Foto Umkm</h5>
                         <p class="card-text">
-                            <img src="./asset/img/undraw-web-shop.png" alt="<?= $umkm['name'] ?>" class="img-fluid">
+                            <img src="<?= $umkm['path_image'] ?>" alt="<?= $umkm['name'] ?>" class="img-fluid">
                         </p>
                     </div>
                 </div>

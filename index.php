@@ -1,8 +1,17 @@
 <?php
 require_once 'model/UmkmBusiness.php';
+require_once 'model/News.php';
+require_once 'model/Profile.php';
+require_once 'helper/Helpers.php';
 require_once 'view/layout/header.php';
+
+$helper = new Helpers();
+$profile = new Profile();
 $data = new UmkmBusiness();
+$dataNews = new News();
+$profile = $profile->getOne(1);
 $data = $data->getAll();
+$dataNews = $dataNews->getAll();
 
 ?>
     <!-- JUMBOTRON -->
@@ -12,7 +21,7 @@ $data = $data->getAll();
         <!-- <p class="text-center text-dark shadow-sm">Selamat datang di Website Desa Kemiri, Panti</p> -->
         <a href="#produk" class="btn btn-primary">Lihat UMKM</a>
       </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -20 1440 320" style="margin-top: 100px;">
         <path
           fill="#e2edff"
           fill-opacity="1"
@@ -31,29 +40,33 @@ $data = $data->getAll();
           <p>Berikut berita terkini yang terjadi di desa</p>
         </div>
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <?php foreach($dataNews as $key => $news): ?>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $key ?>" <?= $key == "0" ? 'class="active" aria-current="true" aria-label="Slide "' . $key : '' ?>></button>
+          <?php endforeach; ?>
+        </div>
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="./asset/img/undraw-group-1.png" class="d-block w-100 rounded" alt="pembukaan" />
-              <div class="carousel-caption d-sm-block p-0">
-                <h6 class="m-0">Lorem Ipsum</h6>
-                <p class="m-0">Lorem Ipsum</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="./asset/img/undraw-group-2.png" class="d-block w-100 rounded" alt="..." />
-              <div class="carousel-caption d-sm-block p-0">
-              <h6 class="m-0">Lorem Ipsum</h6>
-                <p class="m-0">Lorem Ipsum</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="./asset/img/undraw-group-3.png" class="d-block w-100 rounded" alt="..." />
-              <div class="carousel-caption d-md-block p-0">
-              <h6 class="m-0">Lorem Ipsum</h6>
-                <p class="m-0">Lorem Ipsum</p>
-              </div>
-            </div>
+            <?php foreach($dataNews as $key => $news): ?>
+              <div class="carousel-item <?= $key == "0" ? 'active' : '' ?>">
+                <a href="detail-news.php?id=<?= $news['id'] ?>">
+                  <img src="<?= $news['path_image'] ?>" class="d-block w-100 rounded" alt="pembukaan" />
+                  <div class="carousel-caption d-none d-md-block">
+                    <h1><?= $news['title'] ?></h1>
+                    <p><?= $helper->str_limit($news['description'], 50) ?></p>
+                    
+                  </div>
+                </a>
+                </div>
+              <?php endforeach; ?>
           </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -73,9 +86,9 @@ $data = $data->getAll();
         <div class="row text-center" data-aos="fade-down">
           <h5 class="text-primary p-0">PROFIL</h5>
           <br />
-          <h2 class="p-0">Sejarah Desa Kemiri, Kecamatan Panti</h2>
+          <h2 class="p-0">Sejarah <?= $profile['name'] ?></h2>
           <br />
-          <p class="p-0">Berikut ini adalah sejarah dari Desa Kemiri</p>
+          <p class="p-0">Berikut ini adalah sejarah dari <?= $profile['name'] ?></p>
         </div>
         <div class="clearfix" data-aos="fade-down">
           <img src="./asset/img/undraw-town.png" class="col-md-6 float-md-end mb-3 ms-md-3 img-fluid rounded" alt="Desa Kemiri" />
@@ -146,7 +159,7 @@ $data = $data->getAll();
           <div class="card-header">Visi dan Misi</div>
           <div class="card-body">
             <h5 class="card-title">Visi</h5>
-            <p class="card-text">Mencerdaskan kehidupan bangsa :v</p>
+            <p class="card-text"><?= $profile['vision'] ?></p>
           </div>
         </div>
         <div class="card text-center" data-aos="zoom-in">

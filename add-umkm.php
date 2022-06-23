@@ -1,13 +1,14 @@
 <?php
 require_once 'model/UmkmBusiness.php';
 require_once 'view/admin/header.php';
-require_once 'upload-umkm.php';
+require_once 'helper/Helpers.php';
 
+$helper = new Helpers();
 $data = new UmkmBusiness();
 if(isset($_POST['submit'])){
     $image = '';
     if(isset($_FILES['image'])){
-        $image = upload($image);
+        $image = $helper->upload($image, 'umkm');
         if(str_contains($image, 'Gagal')){
             $image = 'asset/img/undraw-web-shop.png';
         }
