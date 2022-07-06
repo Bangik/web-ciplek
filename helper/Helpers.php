@@ -48,11 +48,7 @@ class Helpers {
     public static function upload($image_old, $parh_dir)
     {
         // cek jika image lama tidak kosong
-        if (file_exists($image_old) && !str_contains($image_old, 'undraw-group-1.png')) {
-            unlink($image_old);
-        }
-
-        if(file_exists($image_old) && !str_contains($image_old, 'undraw-web-shop.png')){
+        if (file_exists($image_old) && !str_contains($image_old, 'asset/img/undraw-group-1.png') && !str_contains($image_old, 'asset/img/undraw-web-shop.png')) {
             unlink($image_old);
         }
 

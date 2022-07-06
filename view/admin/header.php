@@ -60,13 +60,13 @@ if(!isset($_SESSION['user'])) {
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active">
+            <!-- <li class="nav-item active">
                 <a class="nav-link" href="index-profile.php">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Data Profil Desa</span>
                 </a>
             </li>
-            <hr class="sidebar-divider">
+            <hr class="sidebar-divider"> -->
 
             <li class="nav-item active">
                 <a class="nav-link" href="index-umkm.php">
